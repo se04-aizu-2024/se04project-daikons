@@ -12,6 +12,7 @@ def bubbleSortASC(arr):
             #is greater than the adjacent element
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
 
 def bubbleSortDESC(arr):
     
@@ -27,6 +28,7 @@ def bubbleSortDESC(arr):
             #is greater than the adjacent element
             if arr[j] < arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
 
 def selectionSortASC(arr):
     size = len(arr)
@@ -43,10 +45,11 @@ def selectionSortASC(arr):
 
         # Arranging min at the correct position
         (arr[s], arr[min_idx]) = (arr[min_idx], arr[s])
+    return arr
 
 def selectionSortDESC(arr):
     size = len(arr)
-
+    
     for s in range(size):
         min_idx = s
         
@@ -59,6 +62,47 @@ def selectionSortDESC(arr):
 
         # Arranging min at the correct position
         (arr[s], arr[min_idx]) = (arr[min_idx], arr[s])
+    return arr
+
+def insertionSortASC(arr): 
+  
+        # Outer loop to traverse on len(arr)  
+        for i in range(1, len(arr)):  
+  
+            a = arr[i]  
+  
+            # Move elements of arr[0 to i-1], 
+            # which are greater to one position
+            # ahead of their current position  
+            j = i - 1  
+          
+            while j >= 0 and a < arr[j]:  
+                arr[j + 1] = arr[j]  
+                j -= 1  
+                
+            arr[j + 1] = a  
+            
+        return arr 
+
+def insertionSortDESC(arr):
+    
+        # Outer loop to traverse on len(arr)  
+        for i in range(1, len(arr)):  
+  
+            a = arr[i]  
+  
+            # Move elements of arr[0 to i-1], 
+            # which are greater to one position
+            # ahead of their current position  
+            j = i - 1  
+          
+            while j <= 0 and a > arr[j]:  
+                arr[j + 1] = arr[j]  
+                j -= 1  
+                
+            arr[j + 1] = a  
+            
+        return arr 
 
 def is_sortedDESC(arr):
     """
@@ -88,12 +132,10 @@ def is_sortedASC(arr):
 # Example to test the above code
 arr = [ 2, 1, 10, 23 ]
 
+print(arr)
 print(is_sortedDESC(arr))
 
-bubbleSortDESC(arr)
+print(insertionSortDESC(arr))
 
 print(is_sortedDESC(arr))
 
-print("Sorted array is:")
-for i in range(len(arr)):
-    print("%d" % arr[i])
