@@ -1,3 +1,6 @@
+#All sorting functions take a single integer array as an argument
+#and returns the sorted array in ascending and descending order
+
 def bubbleSortASC(arr):
     
     n = len(arr)
