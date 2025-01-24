@@ -1,8 +1,16 @@
 
+# Ignore virtual environment
 /myenv/bin
 /myenv
+
 *.py-tpl
 *.ps1
 *.mo
 *.po
 *.py
+
+*.pyc
+__pycache__/
+
+# Ignore collected static files
+staticfiles/
