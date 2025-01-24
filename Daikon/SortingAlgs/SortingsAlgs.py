@@ -1,3 +1,8 @@
+import numpy
+
+#All sorting functions take a single integer array as an argument
+#and returns the sorted array in ascending and descending order
+
 def bubbleSortASC(arr):
     
     n = len(arr)
@@ -92,11 +97,11 @@ def insertionSortDESC(arr):
             a = arr[i]  
   
             # Move elements of arr[0 to i-1], 
-            # which are greater to one position
+            # which are less than to one position
             # ahead of their current position  
             j = i - 1  
           
-            while j <= 0 and a > arr[j]:  
+            while j >= 0 and a > arr[j]:  
                 arr[j + 1] = arr[j]  
                 j -= 1  
                 
@@ -127,15 +132,16 @@ def is_sortedASC(arr):
         bool: True if the array is sorted, False otherwise.
     """
     return all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
+
 # Driver code
-
 # Example to test the above code
-arr = [ 2, 1, 10, 23 ]
 
-print(arr)
+rng = numpy.random.default_rng()
+arr = rng.integers(0, 10, size=5)
+
+print("Initial array is: ", arr)
 print(is_sortedDESC(arr))
 
-print(insertionSortDESC(arr))
-
+print("Sorted array is: ", insertionSortDESC(arr))
 print(is_sortedDESC(arr))
 
