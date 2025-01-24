@@ -1,0 +1,8 @@
+
+/myenv/bin
+/myenv
+*.py-tpl
+*.ps1
+*.mo
+*.po
+*.py
