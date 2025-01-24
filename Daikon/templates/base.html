@@ -13,16 +13,16 @@
       <h2>DAIKONS</h2>
       <nav>
         <ul>
-          <li><a href="#" class="active">Bubble Sort</a></li>
-          <li><a href="#">Quick Sort</a></li>
-          <li><a href="#">Selecting Sort</a></li>
-          <li><a href="#">Merge Sort</a></li>
-          <li><a href="#">Heap Sort</a></li>
+          <li><a href="{% url 'bubblesort' %}" {% if request.path == '/sortingalgs/bubblesort/' %}class="active"{% endif %}>Bubble Sort</a></li>
+          <li><a href="{% url 'insertionsort' %}" {% if request.path == '/sortingalgs/insertionsort/' %}class="active"{% endif %}>Insertion Sort</a></li>
+          <li><a href="{% url 'selectionsort' %}" {% if request.path == '/sortingalgs/selectionsort/' %}class="active"{% endif %}>Selection Sort</a></li>
         </ul>
-      </nav>
+    </nav>
+
     </aside>
     <main class="main-content">
-      <h1>Bubble Sort</h1>
+      <h1>{% block title %}Bubble Sort{% endblock %}</h1>
+      {% block content %}
       <form>
         <div class="form-group">
           <label for="n-value">N value</label>
@@ -46,6 +46,7 @@
           <label>Time</label>
           <input type="text" readonly value="0.3 m sec">
         </div>
+        {% endblock %}
       </form>
     </main>
   </div>
