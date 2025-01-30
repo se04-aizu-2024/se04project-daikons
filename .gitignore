@@ -7,8 +7,6 @@
 *.ps1
 *.mo
 *.po
-*.py
-
 *.pyc
 __pycache__/
 
