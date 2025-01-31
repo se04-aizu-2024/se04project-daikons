@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Bubble Sort{% endblock %}
 {% block content %}
+
 <form method="POST" id="sorting-form">
   {% csrf_token %}
   <div class="form-group">
@@ -20,24 +21,28 @@
 <br />
 
 <div>
-    <label for="sorted-array">Sorted Array</label>
-    <input type="text" id="sorted-array" readonly>
-  </div>
-  <div>
-    <label for="process-time">Process Time (ms)</label>
-    <input type="text" id="process-time" readonly>
+  <label for="sorted-array">Sorted Array</label>
+  <input type="text" id="sorted-array" readonly>
 </div>
-
+<br />
 <div>
-    <label for="speed">Speed: </label>
-    <input type="range" id="speed" min="100" max="2000" value="1000" step="100">
-  </div>
-
-<div id="visualization-area" class="visualization">
-  <!-- Visualization will be rendered here -->
+  <label for="process-time">Process Time (ms)</label>
+  <input type="text" id="process-time" readonly>
 </div>
+<br />
+<div>
+  <label for="speed">Speed: </label>
+  <input type="range" id="speed" min="100" max="2000" value="1000" step="100">
+</div>
+
+<div class="visualization-container">
+  <div class="sorted-boxes" id="visualization-area">
+      <!-- Dynamic content will be added here -->
+  </div>
+</div>
+
 
 <!-- Include JavaScript -->
- {% load static %}
+{% load static %}
 <script src="{% static 'bubblesort.js' %}"></script>
 {% endblock %}

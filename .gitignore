@@ -1,7 +1,6 @@
 
 # Ignore virtual environment
 /myenv/bin
-/myenv
 
 *.py-tpl
 *.ps1
@@ -11,8 +10,5 @@
 __pycache__/
 
 # Ignore collected static files
-staticfiles/
 *.fish
 *.csh
-/Daikon/Daikon/__pycache__
-/myenv
