@@ -14,32 +14,44 @@ body {
   height: 100vh;
 }
 
-/* Sidebar */
+/* Sidebar Styling */
 .sidebar {
   background-color: #00274d;
   color: white;
-  width: 250px; /* Fixed width to prevent overlap */
+  width: 250px; /* Ensures a fixed width */
+  height: 100vh;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center; /* Centers the text and links */
+  justify-content: flex-start; /* Keeps links at the top */
 }
 
+/* Sidebar Title */
 .sidebar h2 {
   font-size: 1.8em;
   margin-bottom: 20px;
   text-align: center;
 }
 
+/* Navigation Styling */
+.sidebar nav {
+  width: 100%;
+}
+
 .sidebar nav ul {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
 
 .sidebar nav ul li {
+  width: 100%;
+  text-align: center;
   margin-bottom: 12px;
 }
 
+/* Navigation Links */
 .sidebar nav ul li a {
   color: white;
   text-decoration: none;
@@ -47,8 +59,11 @@ body {
   padding: 12px;
   border-radius: 6px;
   transition: background-color 0.3s;
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
+/* Active & Hover States */
 .sidebar nav ul li a.active,
 .sidebar nav ul li a:hover {
   background-color: #004080;
@@ -194,10 +209,14 @@ body {
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Sorting States */
+.current-min {
+  background-color: orange !important;
+}
+
 .compare {
   background-color: red !important;
 }
+
 
 .moving {
   background-color: yellow !important;
@@ -205,4 +224,43 @@ body {
 
 .sorted {
   background-color: green !important;
+}
+
+/* Legend Styling */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+/* Color Matching with Sort */
+.legend-color.sorted {
+  background-color: green;
+}
+
+.legend-color.current-min {
+  background-color: orange;
+}
+
+.legend-color.compare {
+  background-color: red;
+}
+
+.legend-color.swap {
+  background-color: yellow;
 }

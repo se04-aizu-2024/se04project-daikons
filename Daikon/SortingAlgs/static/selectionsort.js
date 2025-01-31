@@ -64,17 +64,24 @@ function visualizeSelectionSort(array, order) {
       let minIdx = i;
       let j = i + 1;
 
+      slots[minIdx].classList.add("current-min"); // Highlight initial min
+
       function findMin() {
         if (j < n) {
           slots[j].classList.add("compare");
+          
           setTimeout(() => {
             if ((order === "ascending" && array[j] < array[minIdx]) || 
                 (order === "descending" && array[j] > array[minIdx])) {
+              
+              slots[minIdx].classList.remove("current-min"); // Remove old min highlight
               minIdx = j;
+              slots[minIdx].classList.add("current-min"); // Highlight new min
             }
+
             slots[j].classList.remove("compare");
             j++;
-            findMin();
+            setTimeout(findMin, speed / 2);
           }, speed / 2);
         } else {
           if (minIdx !== i) {
@@ -89,17 +96,20 @@ function visualizeSelectionSort(array, order) {
             setTimeout(() => {
               [array[i], array[minIdx]] = [array[minIdx], array[i]];
               [slots[i].textContent, slots[minIdx].textContent] = [slots[minIdx].textContent, slots[i].textContent];
+
               slots[i].style.transform = "translateX(0)";
               slots[minIdx].style.transform = "translateX(0)";
               slots[i].classList.remove("swap");
               slots[minIdx].classList.remove("swap");
               slots[i].classList.add("sorted");
-              
+
+              slots[minIdx].classList.remove("current-min"); // Remove min highlight
               i++;
               setTimeout(step, speed);
             }, speed / 2);
           } else {
             slots[i].classList.add("sorted");
+            slots[minIdx].classList.remove("current-min"); // Remove min highlight
             i++;
             setTimeout(step, speed);
           }
@@ -112,3 +122,4 @@ function visualizeSelectionSort(array, order) {
   }
   step();
 }
+
